@@ -47,5 +47,7 @@ To improve the performance disable the light attenuation and smooth light.
 Contact
 =======
 Charles Marcel de Barros
+
 charlesbarros@gmail.com
+
 http://gamecoderbr.blogspot.com.br/
