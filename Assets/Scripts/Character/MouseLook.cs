@@ -20,7 +20,7 @@ public class MouseLook : MonoBehaviour {
 	
 	void Start() {
 		angles = transform.eulerAngles;
-		Screen.showCursor = false;
+		Cursor.visible = false;
 	}
 	
 	// Update is called once per frame
@@ -29,13 +29,12 @@ public class MouseLook : MonoBehaviour {
 		
 		if (Input.GetKeyDown(KeyCode.Escape))
 		{
-			Screen.showCursor = !Screen.showCursor;
+			Cursor.visible = !Cursor.visible;
 		}
 		
-		if(Screen.showCursor) return;
+		if(Cursor.visible) return;
 		
-		Screen.lockCursor = true;
-		Screen.lockCursor = false;
+		Cursor.lockState = CursorLockMode.Locked;
 		
 		float x = Input.GetAxis("Mouse X");
 		float y = -Input.GetAxis("Mouse Y");	

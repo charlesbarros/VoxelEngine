@@ -3,6 +3,9 @@ using System.Collections;
 
 // This class is used to let the player add a custom seed to the 
 // Simplex3D (The noise algorithm used to generate the world data)
+using UnityEngine.SceneManagement;
+
+
 public class WorldConfig : MonoBehaviour 
 {
 	private static string _worldSeed = "Legolas";
@@ -42,7 +45,7 @@ public class WorldConfig : MonoBehaviour
 		if (GUI.Button( new Rect( leftMargin, 100 * _heightRatio , buttonWorldWidth, buttonWorldHeight), _buttonText) == true)
 		{
 			_buttonText = "LOADING...";
-			Application.LoadLevel("worldScene");	
+			SceneManager.LoadScene("worldScene");	
 		}
 	
 		float buttonBlogWidth = 300 * _widthRatio;

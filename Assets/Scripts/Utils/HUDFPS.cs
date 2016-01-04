@@ -23,14 +23,14 @@ private float timeleft; // Left time for current interval
  
 void Start()
 {
-    if( !guiText )
+    if( !GetComponent<GUIText>() )
     {
         Debug.Log("UtilityFramesPerSecond needs a GUIText component!");
         enabled = false;
         return;
     }
     timeleft = updateInterval;  
-	guiText.material.color = Color.black;
+	GetComponent<GUIText>().material.color = Color.black;
 }
  
 void Update()
@@ -43,7 +43,7 @@ void Update()
     {
 		float fps = accum/frames;
 		string format = System.String.Format("{0:F2} FPS",fps);
-		guiText.text = format;
+		GetComponent<GUIText>().text = format;
 
         timeleft = updateInterval;
         accum = 0.0F;

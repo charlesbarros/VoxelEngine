@@ -53,7 +53,7 @@ public class CharacterSkills : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		if(Screen.showCursor) return;
+		if(Cursor.visible) return;
 		
 		// The anim duration is used like a cooldown to avoid the player create/destroy blocks to fast
 		if( Input.GetMouseButtonDown(0) && IsPlaying() == false) 
@@ -70,7 +70,7 @@ public class CharacterSkills : MonoBehaviour
 	
 	bool IsPlaying()
 	{
-		return (_pickAxe.animation["Take 001"].normalizedTime <= 0.85f && _pickAxe.animation["Take 001"].normalizedTime > 0.0f);	
+		return (_pickAxe.GetComponent<Animation>()["Take 001"].normalizedTime <= 0.85f && _pickAxe.GetComponent<Animation>()["Take 001"].normalizedTime > 0.0f);	
 	}
 	
 	void SelectGrassBlock()
@@ -99,8 +99,8 @@ public class CharacterSkills : MonoBehaviour
 	
 	void CreateBlock()
 	{
-		_pickAxe.animation.Stop();
-		_pickAxe.animation.Play();
+		_pickAxe.GetComponent<Animation>().Stop();
+		_pickAxe.GetComponent<Animation>().Play();
 		
 		Block selectedBlock = GetBlock(true);
 
@@ -117,8 +117,8 @@ public class CharacterSkills : MonoBehaviour
 	
 	void DestroyBlock()
 	{
-		_pickAxe.animation.Stop();
-		_pickAxe.animation.Play();
+		_pickAxe.GetComponent<Animation>().Stop();
+		_pickAxe.GetComponent<Animation>().Play();
 		
 		Block selectedBlock = GetBlock();
 		
@@ -156,7 +156,7 @@ public class CharacterSkills : MonoBehaviour
 				int z = Mathf.RoundToInt(_selectedBlockPosition.z);
 				Block topBlock = _world[x, y+1, z];
 				float particleColor = ((float)topBlock.Light)/255.0f;
-				particle.renderer.material.color = new Color(particleColor, particleColor, particleColor);
+				particle.GetComponent<Renderer>().material.color = new Color(particleColor, particleColor, particleColor);
 				
 				Vector3 particlePos = _selectedBlockPosition;
 				particlePos.y += 0.75f;
